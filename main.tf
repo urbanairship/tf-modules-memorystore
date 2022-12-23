@@ -17,6 +17,9 @@ provider "google" {
   project                     = var.project
   impersonate_service_account = "terraform@${var.project}.iam.gserviceaccount.com"
 }
+locals {
+  labels = merge(var.labels, { "managed_by" : "terraform" })
+}
 
 resource "google_redis_instance" "default" {
   project            = var.project
@@ -39,7 +42,7 @@ resource "google_redis_instance" "default" {
   display_name      = var.display_name
   reserved_ip_range = var.reserved_ip_range
 
-  labels = var.labels
+  labels = local.labels
 
   auth_enabled = var.auth_enabled
 
