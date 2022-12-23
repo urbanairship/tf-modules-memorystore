@@ -34,7 +34,6 @@ module "memorystore" {
 | connect\_mode | The connection mode of the Redis instance. Can be either DIRECT\_PEERING or PRIVATE\_SERVICE\_ACCESS. The default connect mode if not provided is DIRECT\_PEERING. | `string` | `null` | no |
 | customer\_managed\_key | Default encryption key to apply to the Redis instance. Defaults to null (Google-managed). | `string` | `null` | no |
 | display\_name | An arbitrary and optional user-provided name for the instance. | `string` | `null` | no |
-| enable\_apis | Flag for enabling redis.googleapis.com in your project | `bool` | `true` | no |
 | labels | The resource labels to represent user provided metadata. | `map(string)` | `null` | no |
 | location\_id | The zone where the instance will be provisioned. If not provided, the service will choose a zone for the instance. For STANDARD\_HA tier, instances will be created across two zones for protection against zonal failures. If [alternativeLocationId] is also provided, it must be different from [locationId]. | `string` | `null` | no |
 | maintenance\_policy | The maintenance policy for an instance. | <pre>object({<br>    day = string<br>    start_time = object({<br>      hours   = number<br>      minutes = number<br>      seconds = number<br>      nanos   = number<br>    })<br>  })</pre> | `null` | no |

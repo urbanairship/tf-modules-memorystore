@@ -21,7 +21,6 @@ module "memstore" {
   project            = var.project_id
   region             = "us-east1"
   location_id        = "us-east1-b"
-  enable_apis        = true
   tier               = "BASIC"
   authorized_network = module.test-vpc-module.network_id
 

@@ -25,19 +25,13 @@ variable "project" {
   type        = string
 }
 
-variable "enable_apis" {
-  description = "Flag for enabling redis.googleapis.com in your project"
-  type        = bool
-  default     = true
-}
-
 variable "name" {
   description = "The ID of the instance or a fully qualified identifier for the instance."
   type        = string
 }
 
 variable "authorized_network" {
-  description = "The full name of the Google Compute Engine network to which the instance is connected. If left unspecified, the default network will be used."
+  description = "The full name of the Google Compute Engine network to which the instance is connected."
   type        = string
   default     = null
 }
@@ -99,7 +93,6 @@ variable "display_name" {
 variable "reserved_ip_range" {
   description = "The CIDR range of internal addresses that are reserved for this instance."
   type        = string
-  default     = null
 }
 
 variable "connect_mode" {

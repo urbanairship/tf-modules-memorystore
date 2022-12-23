@@ -23,7 +23,6 @@ module "memstore" {
   region                  = "us-east1"
   location_id             = "us-east1-b"
   alternative_location_id = "us-east1-d"
-  enable_apis             = true
   auth_enabled            = true
   transit_encryption_mode = "SERVER_AUTHENTICATION"
   authorized_network      = module.test-vpc-module.network_id

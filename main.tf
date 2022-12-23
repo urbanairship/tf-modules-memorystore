@@ -13,10 +13,12 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+provider "google" {
+  project                     = var.project
+  impersonate_service_account = "terraform@${var.project}.iam.gserviceaccount.com"
+}
 
 resource "google_redis_instance" "default" {
-  depends_on = [module.enable_apis]
-
   project            = var.project
   name               = var.name
   tier               = var.tier
@@ -57,17 +59,4 @@ resource "google_redis_instance" "default" {
       }
     }
   }
-}
-
-module "enable_apis" {
-  source  = "terraform-google-modules/project-factory/google//modules/project_services"
-  version = "~> 11.0"
-
-  project_id                  = var.project
-  enable_apis                 = var.enable_apis
-  disable_services_on_destroy = false
-
-  activate_apis = [
-    "redis.googleapis.com",
-  ]
 }
