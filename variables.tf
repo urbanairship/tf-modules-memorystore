@@ -104,7 +104,7 @@ variable "connect_mode" {
 variable "labels" {
   description = "The resource labels to represent user provided metadata."
   type        = map(string)
-  default     = null
+  default     = {}
 }
 
 variable "auth_enabled" {
