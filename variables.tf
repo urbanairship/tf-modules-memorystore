@@ -17,7 +17,6 @@
 variable "region" {
   description = "The GCP region to use."
   type        = string
-  default     = null
 }
 
 variable "project" {
@@ -98,7 +97,7 @@ variable "reserved_ip_range" {
 variable "connect_mode" {
   description = "The connection mode of the Redis instance. Can be either DIRECT_PEERING or PRIVATE_SERVICE_ACCESS. The default connect mode if not provided is DIRECT_PEERING."
   type        = string
-  default     = null
+  default     = "PRIVATE_SERVICE_ACCESS"
 }
 
 variable "labels" {
@@ -116,7 +115,7 @@ variable "auth_enabled" {
 variable "transit_encryption_mode" {
   description = "The TLS mode of the Redis instance, If not provided, TLS is enabled for the instance."
   type        = string
-  default     = "SERVER_AUTHENTICATION"
+  default     = "DISABLED"
 }
 
 variable "maintenance_policy" {
