@@ -17,18 +17,11 @@
 variable "region" {
   description = "The GCP region to use."
   type        = string
-  default     = null
 }
 
 variable "project" {
   description = "The ID of the project in which the resource belongs to."
   type        = string
-}
-
-variable "enable_apis" {
-  description = "Flag for enabling redis.googleapis.com in your project"
-  type        = bool
-  default     = true
 }
 
 variable "name" {
@@ -37,7 +30,7 @@ variable "name" {
 }
 
 variable "authorized_network" {
-  description = "The full name of the Google Compute Engine network to which the instance is connected. If left unspecified, the default network will be used."
+  description = "The full name of the Google Compute Engine network to which the instance is connected."
   type        = string
   default     = null
 }
@@ -99,19 +92,18 @@ variable "display_name" {
 variable "reserved_ip_range" {
   description = "The CIDR range of internal addresses that are reserved for this instance."
   type        = string
-  default     = null
 }
 
 variable "connect_mode" {
   description = "The connection mode of the Redis instance. Can be either DIRECT_PEERING or PRIVATE_SERVICE_ACCESS. The default connect mode if not provided is DIRECT_PEERING."
   type        = string
-  default     = null
+  default     = "PRIVATE_SERVICE_ACCESS"
 }
 
 variable "labels" {
   description = "The resource labels to represent user provided metadata."
   type        = map(string)
-  default     = null
+  default     = {}
 }
 
 variable "auth_enabled" {
@@ -123,7 +115,7 @@ variable "auth_enabled" {
 variable "transit_encryption_mode" {
   description = "The TLS mode of the Redis instance, If not provided, TLS is enabled for the instance."
   type        = string
-  default     = "SERVER_AUTHENTICATION"
+  default     = "DISABLED"
 }
 
 variable "maintenance_policy" {

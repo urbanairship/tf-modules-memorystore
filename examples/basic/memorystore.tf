@@ -15,9 +15,8 @@
  */
 
 module "memorystore" {
-  source         = "../../"
+  source         = "github.com/urbanairship/tf-modules-memorystore?ref=v1"
   name           = "memorystore"
   project        = "memorystore"
   memory_size_gb = "1"
-  enable_apis    = "true"
 }
