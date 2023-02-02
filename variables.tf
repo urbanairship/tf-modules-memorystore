@@ -56,7 +56,7 @@ variable "replica_count" {
 variable "read_replicas_mode" {
   description = "Read replicas mode. https://cloud.google.com/memorystore/docs/redis/reference/rest/v1/projects.locations.instances#readreplicasmode "
   type        = string
-  default     = "READ_REPLICAS_DISABLED"
+  default     = null
 }
 
 variable "location_id" {
