@@ -13,6 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+
 provider "google" {
   project                     = var.project
   impersonate_service_account = "terraform@${var.project}.iam.gserviceaccount.com"
