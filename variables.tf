@@ -47,14 +47,6 @@ variable "memory_size_gb" {
   default     = 1
 }
 
-variable "persistence_config" {
-  description = "Persistence configuration for an instance."
-  type = map(any)
-  default = {
-    persistence_mode = "DISABLED"
-  }
-}
-
 variable "replica_count" {
   description = "The number of replicas. can"
   type        = number
