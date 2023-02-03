@@ -48,6 +48,11 @@ resource "google_redis_instance" "default" {
   display_name      = var.display_name
   reserved_ip_range = var.reserved_ip_range
 
+  persistence_config {
+    # Until we have optional parameters this isn't trivial to implement. We also aren't using this.
+    persistence_mode = "DISABLED"
+  }
+
   labels = local.labels
 
   auth_enabled = var.auth_enabled
