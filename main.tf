@@ -13,6 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+
 provider "google" {
   project                     = var.project
   impersonate_service_account = "terraform@${var.project}.iam.gserviceaccount.com"
@@ -47,11 +48,6 @@ resource "google_redis_instance" "default" {
   redis_configs     = var.redis_configs
   display_name      = var.display_name
   reserved_ip_range = var.reserved_ip_range
-
-  persistence_config {
-    # Until we have optional parameters this isn't trivial to implement. We also aren't using this.
-    persistence_mode = "DISABLED"
-  }
 
   labels = local.labels
 
