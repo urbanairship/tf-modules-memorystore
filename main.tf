@@ -25,7 +25,7 @@ module "airship-providers" {
 }
 
 locals {
-  labels = merge(var.labels, { "managed_by" : "terraform" })
+  labels = merge(var.labels, { "managed_by" : "terraform", "gl" : "memorystore" })
 }
 
 resource "google_redis_instance" "default" {

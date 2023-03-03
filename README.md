@@ -2,12 +2,20 @@
 
 A Terraform module for creating a fully functional Google Memorystore (redis) instance.
 
+It automatically generates the following labels:
+
+- managed_by : terraform
+- gl : memorystore
+
 ## Compatibility
-This module is meant for use with Terraform 0.13+ and tested using Terraform 1.0+. If you find incompatibilities using Terraform >=0.13, please open an issue.
- If you haven't
+
+This module is meant for use with Terraform 0.13+ and tested using Terraform 1.0+. If you find incompatibilities using
+Terraform >=0.13, please open an issue.
+If you haven't
 [upgraded](https://www.terraform.io/upgrade-guides/0-13.html) and need a Terraform
 0.12.x-compatible version of this module, the last released version
-intended for Terraform 0.12.x is [v2.0.0](https://registry.terraform.io/modules/terraform-google-modules/-memorystore/google/v2.0.0).
+intended for Terraform 0.12.x
+is [v2.0.0](https://registry.terraform.io/modules/terraform-google-modules/-memorystore/google/v2.0.0).
 
 ## Usage
 
@@ -24,6 +32,7 @@ module "memorystore" {
 ```
 
 <!-- BEGINNING OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
+
 ## Inputs
 
 | Name | Description | Type | Default | Required |
@@ -36,7 +45,7 @@ module "memorystore" {
 | display\_name | An arbitrary and optional user-provided name for the instance. | `string` | `null` | no |
 | labels | The resource labels to represent user provided metadata. | `map(string)` | `null` | no |
 | location\_id | The zone where the instance will be provisioned. If not provided, the service will choose a zone for the instance. For STANDARD\_HA tier, instances will be created across two zones for protection against zonal failures. If [alternativeLocationId] is also provided, it must be different from [locationId]. | `string` | `null` | no |
-| maintenance\_policy | The maintenance policy for an instance. | <pre>object({<br>    day = string<br>    start_time = object({<br>      hours   = number<br>      minutes = number<br>      seconds = number<br>      nanos   = number<br>    })<br>  })</pre> | `null` | no |
+| maintenance\_policy | The maintenance policy for an instance. | <pre>object({<br>    day = string<br>    start_time = object({<br>      hours = number<br>      minutes = number<br>      seconds = number<br>      nanos = number<br>    })<br>  })</pre> | `null` | no |
 | memory\_size\_gb | Redis memory size in GiB. Defaulted to 1 GiB | `number` | `1` | no |
 | name | The ID of the instance or a fully qualified identifier for the instance. | `string` | n/a | yes |
 | project | The ID of the project in which the resource belongs to. | `string` | n/a | yes |
