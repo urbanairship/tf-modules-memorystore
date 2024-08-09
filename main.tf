@@ -48,4 +48,9 @@ resource "google_redis_instance" "default" {
       }
     }
   }
+  timeouts {
+    create = "30m"
+    update = "40m"
+    delete = "40m"
+  }
 }
