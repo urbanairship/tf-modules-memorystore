@@ -1,8 +1,3 @@
-module "airship-providers" {
-  # version control of the various providers
-  source = "github.com/urbanairship/tf-modules-providers?ref=v1"
-}
-
 locals {
   labels = merge(var.labels, { "managed_by" : "terraform", "gl" : "memorystore" })
 }
